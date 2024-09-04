@@ -3,3 +3,6 @@
 
 ### CodeClimate Maintainability Badge
 [![Maintainability](https://api.codeclimate.com/v1/badges/4db2e9098154db45f759/maintainability)](https://codeclimate.com/github/aralts/php-project-45/maintainability)
+
+### brain-even asciinema
+[![asciinema](https://asciinema.org/a/yKY1HaQKjXTyXtxJ5ZneYbQPt)](https://asciinema.org/a/yKY1HaQKjXTyXtxJ5ZneYbQPt)

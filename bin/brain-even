@@ -1,0 +1,41 @@
+#!/usr/bin/env php
+
+<?php
+
+require_once __DIR__ . '/../vendor/autoload.php';
+
+use function cli\line;
+use function cli\prompt;
+use BrainGames\Cli;
+
+$name = Cli\greeting();
+
+$correct_answers = 0;
+$max_number_answers_for_win = 3;
+$wrong_ahswer = false;
+$answer = '';
+
+line('Answer "yes" if the number is even, otherwise answer "no".');
+
+while ($correct_answers < $max_number_answers_for_win && !$wrong_ahswer) {
+  $number = rand(0, 100);
+  $is_even = $number % 2 === 0;
+
+  line('Question: '. $number);
+
+  $answer = prompt('Your answer');
+  
+  if (($is_even && $answer === 'yes') || (!$is_even && $answer === 'no')) {
+    $correct_answers++;
+    line('Correct!');
+  } else {
+    $wrong_ahswer = true;
+  }
+}
+
+if (!$wrong_ahswer) {
+  line('Congratulations, '.$name.'!');
+} else {
+  line("'".$answer."' is wrong answer ;( Correct answer was '".($is_even? 'yes' : 'no')."'.");
+  line("Let's try again, ".$name.'!');
+}
