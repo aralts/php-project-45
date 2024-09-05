@@ -10,7 +10,8 @@
             "src/Cli.php",
             "src/Engine.php",
             "src/Games/Calc.php",
-            "src/Games/Evem.php"
+            "src/Games/Evem.php",
+            "src/Games/Gcd.php"
         ]
     },
     "authors": [
@@ -22,7 +23,8 @@
     "bin": [
         "bin/brain-games",
         "bin/brain-even",
-        "bin/brain-calc"
+        "bin/brain-calc",
+        "bin/brain-gcd"
     ],
     "require": {
         "wp-cli/php-cli-tools": "^0.12",
