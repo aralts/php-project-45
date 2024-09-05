@@ -5,8 +5,8 @@
 require_once __DIR__ . '/../vendor/autoload.php';
 
 use BrainGames\Cli;
-use BrainGames\Games\Even;
+use BrainGames\Games\Calc;
 
 $name = Cli\greeting();
 
-Even\start($name);
+Calc\start($name);
