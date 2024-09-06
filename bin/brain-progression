@@ -1,0 +1,12 @@
+#!/usr/bin/env php
+
+<?php
+
+require_once __DIR__ . '/../vendor/autoload.php';
+
+use BrainGames\Cli;
+use BrainGames\Games\Progression;
+
+$name = Cli\greeting();
+
+Progression\start($name);
