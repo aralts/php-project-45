@@ -7,7 +7,7 @@ use function cli\{line, prompt};
 
 use const BrainGames\Games\ROUNDS;
 
-function start($name)
+function start(string $name)
 {
     $correct_answers = 0;
     $wrong_ahswer = false;

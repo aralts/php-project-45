@@ -7,7 +7,7 @@ use function cli\{line, prompt};
 
 use const BrainGames\Games\ROUNDS;
 
-function start($name)
+function start(string $name)
 {
     $correct_answers = 0;
     $wrong_ahswer = false;
@@ -31,7 +31,7 @@ function start($name)
     PrintRoundResult($name, $wrong_ahswer, $answer, ($is_prime ? 'yes' : 'no'));
 }
 
-function check_prime($number)
+function check_prime(int $number)
 {
     if ($number < 2) {
         return false;

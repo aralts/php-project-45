@@ -7,7 +7,7 @@ use function cli\{line, prompt};
 
 use const BrainGames\Games\ROUNDS;
 
-function start($name)
+function start(string $name)
 {
     $correct_answers = 0;
     $wrong_ahswer = false;
@@ -43,7 +43,7 @@ function start($name)
     PrintRoundResult($name, $wrong_ahswer, $answer, $divisor);
 }
 
-function gcd($a, $b)
+function gcd(int $a, int $b)
 {
     while ($b != 0) {
         $temp = $b;

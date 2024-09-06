@@ -7,7 +7,7 @@ use function cli\{line, prompt};
 
 use const BrainGames\Games\ROUNDS;
 
-function start($name)
+function start(string $name)
 {
     $correct_answers = 0;
     $wrong_ahswer = false;
@@ -25,7 +25,7 @@ function start($name)
     PrintRoundResult($name, $wrong_ahswer, $amout['answer'], $amout['result']);
 }
 
-function counting($first_number, $second_number, $operation)
+function counting(int $first_number, int $second_number, string $operation)
 {
     $message = 'Question: ' . $first_number . ' ' . $operation . ' ' . $second_number;
 

@@ -6,7 +6,7 @@ use function cli\line;
 
 const ROUNDS = 3;
 
-function CheckAnswer($is_correct, &$correct_answers, &$wrong_ahswer)
+function CheckAnswer(bool $is_correct, int &$correct_answers, bool &$wrong_ahswer)
 {
     if ($is_correct) {
         $correct_answers++;
@@ -16,7 +16,7 @@ function CheckAnswer($is_correct, &$correct_answers, &$wrong_ahswer)
     }
 }
 
-function PrintRoundResult($name, $wrong_ahswer, $answer, $result)
+function PrintRoundResult(string $name, bool $wrong_ahswer, int | string $answer, int | string $result)
 {
     if (!$wrong_ahswer) {
         line('Congratulations, ' . $name . '!');
