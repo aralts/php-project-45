@@ -45,16 +45,14 @@ function counting(int $first_number, int $second_number, string $operation)
         $result = $first_number * $second_number;
     }
 
+    $response = [
+        'correct' => true,
+        'result' => $result,
+        'answer' => $answer
+    ];
+
     if (ctype_digit($answer)) {
-        $answer = (int) $answer;
-
-        $response = [
-            'correct' => true,
-            'result' => $result,
-            'answer' => $answer
-        ];
-
-        if ($answer === $result) {
+        if ((int) $answer === $result) {
             return $response;
         } else {
             $response['correct'] = false;

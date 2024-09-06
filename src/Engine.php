@@ -16,7 +16,7 @@ function CheckAnswer(bool $is_correct, int &$correct_answers, bool &$wrong_ahswe
     }
 }
 
-function PrintRoundResult(string $name, bool $wrong_ahswer, int | string $answer, int | string $result)
+function PrintRoundResult(string $name, bool $wrong_ahswer, string $answer, int $result)
 {
     if (!$wrong_ahswer) {
         line('Congratulations, ' . $name . '!');
