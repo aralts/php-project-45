@@ -15,3 +15,6 @@
 
 ### brain-progression asciinema
 [![asciinema](https://img.shields.io/badge/asciinema%20(lesson%208)-E6695B)](https://asciinema.org/a/eolrUI5LUbwvsplvivhh1mpE2)
+
+### brain-prime asciinema
+[![asciinema](https://img.shields.io/badge/asciinema%20(lesson%209)-E6695B)](https://asciinema.org/a/WXRfLZa7Xkx3RFuSxKvJaEa7k)
