@@ -15,7 +15,7 @@ function start($name)
   $wrong_ahswer = false;
   $answer = '';
 
-  line('Answer "yes" if the number is even, otherwise answer "no".');
+  line('Answer "yes" if given number is prime. Otherwise answer "no".');
 
   while ($correct_answers < ROUNDS && !$wrong_ahswer) {
     $number = rand(0, 100);
