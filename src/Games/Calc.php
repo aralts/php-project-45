@@ -27,6 +27,7 @@ function start(string $name)
 
 function counting(int $first_number, int $second_number, string $operation)
 {
+    $result = null;
     $message = 'Question: ' . $first_number . ' ' . $operation . ' ' . $second_number;
 
     if ($operation === '-' && $second_number > $first_number) {
