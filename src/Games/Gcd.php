@@ -2,21 +2,20 @@
 
 namespace BrainGames\Games\Gcd;
 
-use function BrainGames\Games\{CheckAnswer, PrintRoundResult};
-use function cli\{line, prompt};
+use function BrainGames\Games\{CheckAnswer, PrintRoundResult, PrintQuestionAndGetAnswer, PrintGameDescription};
 
 use const BrainGames\Games\ROUNDS;
 
 function start(string $name)
 {
     $correct_answers = 0;
-    $wrong_ahswer = false;
+    $wrong_answer = false;
     $divisor = 1;
     $answer = '';
 
-    line('Find the greatest common divisor of given numbers.');
+    PrintGameDescription('Find the greatest common divisor of given numbers.');
 
-    while ($correct_answers < ROUNDS && !$wrong_ahswer) {
+    while ($correct_answers < ROUNDS && !$wrong_answer) {
         $first_number = rand(1, 100);
         $second_number = rand(1, 100);
         $divisor = gcd($first_number, $second_number);
@@ -27,9 +26,7 @@ function start(string $name)
             $divisor = gcd($first_number, $second_number);
         }
 
-        line('Question: ' . $first_number . ' ' . $second_number);
-
-        $answer = prompt('Your answer');
+        $answer = PrintQuestionAndGetAnswer('Question: ' . $first_number . ' ' . $second_number);
 
         if (ctype_digit($answer)) {
             $is_correct = $divisor === (int) $answer;
@@ -37,10 +34,10 @@ function start(string $name)
             $is_correct = false;
         }
 
-        CheckAnswer($is_correct, $correct_answers, $wrong_ahswer);
+        CheckAnswer($is_correct, $correct_answers, $wrong_answer);
     }
 
-    PrintRoundResult($name, $wrong_ahswer, $answer, $divisor);
+    PrintRoundResult($name, $wrong_answer, $answer, $divisor);
 }
 
 function gcd(int $a, int $b)

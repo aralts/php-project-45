@@ -2,27 +2,26 @@
 
 namespace BrainGames\Games\Calc;
 
-use function BrainGames\Games\{CheckAnswer, PrintRoundResult};
-use function cli\{line, prompt};
+use function BrainGames\Games\{CheckAnswer, PrintRoundResult, PrintQuestionAndGetAnswer, PrintGameDescription};
 
 use const BrainGames\Games\ROUNDS;
 
 function start(string $name)
 {
     $correct_answers = 0;
-    $wrong_ahswer = false;
+    $wrong_answer = false;
     $operations = ['+', '-', '*'];
     $operation = $operations[rand(0, 2)];
 
-    line('What is the result of the expression?');
+    PrintGameDescription('What is the result of the expression?');
 
-    while ($correct_answers < ROUNDS && !$wrong_ahswer) {
+    while ($correct_answers < ROUNDS && !$wrong_answer) {
         $amout = counting(rand(1, 25), rand(1, 25), $operation);
 
-        CheckAnswer($amout['correct'], $correct_answers, $wrong_ahswer);
+        CheckAnswer($amout['correct'], $correct_answers, $wrong_answer);
     }
 
-    PrintRoundResult($name, $wrong_ahswer, $amout['answer'], $amout['result']);
+    PrintRoundResult($name, $wrong_answer, $amout['answer'], $amout['result']);
 }
 
 function counting(int $first_number, int $second_number, string $operation)
@@ -34,9 +33,7 @@ function counting(int $first_number, int $second_number, string $operation)
         $message = 'Question: ' . $second_number . ' ' . $operation . ' ' . $first_number;
     }
 
-    line($message);
-
-    $answer = prompt('Your answer');
+    $answer = PrintQuestionAndGetAnswer($message);
 
     if ($operation === '+') {
         $result = $first_number + $second_number;

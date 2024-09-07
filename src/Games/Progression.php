@@ -2,28 +2,25 @@
 
 namespace BrainGames\Games\Progression;
 
-use function BrainGames\Games\{CheckAnswer, PrintRoundResult};
-use function cli\{line, prompt};
+use function BrainGames\Games\{CheckAnswer, PrintRoundResult, PrintQuestionAndGetAnswer, PrintGameDescription};
 
 use const BrainGames\Games\ROUNDS;
 
 function start(string $name)
 {
     $correct_answers = 0;
-    $wrong_ahswer = false;
+    $wrong_answer = false;
     $hidden_value = null;
     $answer = '';
 
-    line('What number is missing in the progression?');
+    PrintGameDescription('What number is missing in the progression?');
 
-    while ($correct_answers < ROUNDS && !$wrong_ahswer) {
+    while ($correct_answers < ROUNDS && !$wrong_answer) {
         $progression_data = generate_progression();
         $progression = $progression_data['progression'];
         $hidden_value = $progression_data['hidden_value'];
 
-        line('Question: ' . implode(' ', $progression));
-
-        $answer = prompt('Your answer');
+        PrintQuestionAndGetAnswer('Question: ' . implode(' ', $progression));
 
         if (ctype_digit($answer)) {
             $is_correct = $hidden_value === (int) $answer;
@@ -31,10 +28,10 @@ function start(string $name)
             $is_correct = false;
         }
 
-        CheckAnswer($is_correct, $correct_answers, $wrong_ahswer);
+        CheckAnswer($is_correct, $correct_answers, $wrong_answer);
     }
 
-    PrintRoundResult($name, $wrong_ahswer, $answer, $hidden_value);
+    PrintRoundResult($name, $wrong_answer, $answer, $hidden_value);
 }
 
 function generate_progression()

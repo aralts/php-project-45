@@ -2,26 +2,36 @@
 
 namespace BrainGames\Games;
 
-use function cli\line;
+use function cli\{line, prompt};
 
 const ROUNDS = 3;
 
-function CheckAnswer(bool $is_correct, int &$correct_answers, bool &$wrong_ahswer)
+function CheckAnswer(bool $is_correct, int &$correct_answers, bool &$wrong_answer)
 {
     if ($is_correct) {
         $correct_answers++;
         line('Correct!');
     } else {
-        $wrong_ahswer = true;
+        $wrong_answer = true;
     }
 }
 
-function PrintRoundResult(string $name, bool $wrong_ahswer, string $answer, int | string $result)
+function PrintRoundResult(string $name, bool $wrong_answer, string $answer, int | string $result)
 {
-    if (!$wrong_ahswer) {
+    if (!$wrong_answer) {
         line('Congratulations, ' . $name . '!');
     } else {
         line("'" . $answer . "' is wrong answer ;( Correct answer was '" . $result . "'.");
         line("Let's try again, " . $name . '!');
     }
+}
+
+function PrintQuestionAndGetAnswer($message) {
+    line($message);
+
+    return prompt('Your answer');
+}
+
+function PrintGameDescription($message) {
+    line($message);
 }

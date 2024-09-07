@@ -2,33 +2,30 @@
 
 namespace BrainGames\Games\Prime;
 
-use function BrainGames\Games\{CheckAnswer, PrintRoundResult};
-use function cli\{line, prompt};
+use function BrainGames\Games\{CheckAnswer, PrintRoundResult, PrintQuestionAndGetAnswer, PrintGameDescription};
 
 use const BrainGames\Games\ROUNDS;
 
 function start(string $name)
 {
     $correct_answers = 0;
-    $wrong_ahswer = false;
+    $wrong_answer = false;
     $answer = '';
 
-    line('Answer "yes" if given number is prime. Otherwise answer "no".');
+    PrintGameDescription('Answer "yes" if given number is prime. Otherwise answer "no".');
 
-    while ($correct_answers < ROUNDS && !$wrong_ahswer) {
+    while ($correct_answers < ROUNDS && !$wrong_answer) {
         $number = rand(0, 100);
         $is_prime = check_prime($number);
 
-        line('Question: ' . $number);
-
-        $answer = prompt('Your answer');
+        $answer = PrintQuestionAndGetAnswer('Question: ' . $number);
 
         $is_correct = ($is_prime && $answer === 'yes') || (!$is_prime && $answer === 'no');
 
-        CheckAnswer($is_correct, $correct_answers, $wrong_ahswer);
+        CheckAnswer($is_correct, $correct_answers, $wrong_answer);
     }
 
-    PrintRoundResult($name, $wrong_ahswer, $answer, ($is_prime ? 'yes' : 'no'));
+    PrintRoundResult($name, $wrong_answer, $answer, ($is_prime ? 'yes' : 'no'));
 }
 
 function check_prime(int $number)
