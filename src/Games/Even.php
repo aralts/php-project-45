@@ -18,7 +18,7 @@ function start(string $name)
         $number = rand(0, 100);
         $is_even = $number % 2 === 0;
 
-        PrintQuestionAndGetAnswer('Question: ' . $number);
+        $answer = PrintQuestionAndGetAnswer('Question: ' . $number);
 
         $is_correct = ($is_even && $answer === 'yes') || (!$is_even && $answer === 'no');
 

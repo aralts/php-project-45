@@ -20,7 +20,7 @@ function start(string $name)
         $progression = $progression_data['progression'];
         $hidden_value = $progression_data['hidden_value'];
 
-        PrintQuestionAndGetAnswer('Question: ' . implode(' ', $progression));
+        $answer = PrintQuestionAndGetAnswer('Question: ' . implode(' ', $progression));
 
         if (ctype_digit($answer)) {
             $is_correct = $hidden_value === (int) $answer;
