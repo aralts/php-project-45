@@ -26,12 +26,14 @@ function PrintRoundResult(string $name, bool $wrong_answer, string $answer, int 
     }
 }
 
-function PrintQuestionAndGetAnswer($message) {
+function PrintQuestionAndGetAnswer($message)
+{
     line($message);
 
     return prompt('Your answer');
 }
 
-function PrintGameDescription($message) {
+function PrintGameDescription($message)
+{
     line($message);
 }
